@@ -1,0 +1,3 @@
+SHA-256 del JSON original y entregado (idénticos):
+c6cab812a40f08e78a8fb6e7f2702a89c75f89f26de92a444de4dcbc8f498ad7
+1000 ciudades; 2565 aristas. No se ejecutó el generador.

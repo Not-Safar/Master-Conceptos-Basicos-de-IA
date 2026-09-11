@@ -1,0 +1,12 @@
+test_disconnected_graph (test_routes.RoutesTest.test_disconnected_graph) ... ok
+test_heuristic_consistent_with_rounded_costs (test_routes.RoutesTest.test_heuristic_consistent_with_rounded_costs) ... ok
+test_names_and_duplicates (test_routes.RoutesTest.test_names_and_duplicates) ... ok
+test_neighbors_both_directions (test_routes.RoutesTest.test_neighbors_both_directions) ... ok
+test_random_sources_against_independent_oracle (test_routes.RoutesTest.test_random_sources_against_independent_oracle) ... ok
+test_same_city (test_routes.RoutesTest.test_same_city) ... ok
+test_suggested_routes_optimal_and_valid (test_routes.RoutesTest.test_suggested_routes_optimal_and_valid) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.147s
+
+OK

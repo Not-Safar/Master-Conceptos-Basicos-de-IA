@@ -1,0 +1,8 @@
+Tijuana → Cancún: Python = JavaScript (camino, costo, saltos y expansiones).
+Mexico City → Monterrey: Python = JavaScript (camino, costo, saltos y expansiones).
+Guadalajara → Mérida: Python = JavaScript (camino, costo, saltos y expansiones).
+Hermosillo → Oaxaca: Python = JavaScript (camino, costo, saltos y expansiones).
+tijuana-cancun: captura real del mapa; todas las aristas y ciudades dibujadas.
+mexico-city-monterrey: captura real del mapa; todas las aristas y ciudades dibujadas.
+UI: filtros conservan ruta, limpiar, duplicados, ciudad inexistente, origen=destino e intercambio: OK.
+Vista móvil 390 px sin desbordamiento horizontal; navegador sin errores JavaScript.

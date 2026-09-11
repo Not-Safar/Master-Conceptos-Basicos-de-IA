@@ -1,0 +1,7 @@
+HTML copiado solo a otra carpeta: OK.
+Clic repetido: Tijuana → Cancún, 4528.20 km y 125 aristas.
+Enter: Mexico City → Monterrey, 1041.87 km.
+Campo vacío: validación conservada.
+Cargas de página: 1 (solo apertura inicial).
+Solicitudes: 1 (solo HTML; ningún JS externo).
+Errores JavaScript: 0.

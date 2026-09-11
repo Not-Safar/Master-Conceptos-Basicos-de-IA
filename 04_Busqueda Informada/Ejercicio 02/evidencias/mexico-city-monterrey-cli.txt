@@ -1,0 +1,10 @@
+python find_route.py --from-city "Mexico City" --to "Monterrey"
+
+Status: SUCCESS
+From: Mexico City, Mexico City [id=0]
+To: Monterrey, Nuevo León [id=10]
+Path: Mexico City, Mexico City [id=0] -> Gustavo Adolfo Madero, Mexico City [id=8] -> Puerto Escondido (Tepeolulco Puerto Escondido), México [id=800] -> Coacalco, México [id=66] -> San Pablo de las Salinas, México [id=96] -> Santa Ana Nextlalpan, México [id=596] -> Paseos de San Juan, México [id=854] -> Tizayuca, Hidalgo [id=227] -> Don Antonio, Hidalgo [id=503] -> Acayuca, Hidalgo [id=997] -> Pachuca de Soto, Hidalgo [id=71] -> Zacualtipán, Hidalgo [id=413] -> Huejutla de Reyes, Hidalgo [id=246] -> Tempoal de Sánchez, Veracruz [id=705] -> El Higo, Veracruz [id=999] -> Pánuco, Veracruz [id=242] -> Ébano, San Luis Potosí [id=391] -> Ursulo Galván, Tamaulipas [id=726] -> González, Tamaulipas [id=765] -> Soto la Marina, Tamaulipas [id=805] -> San Fernando, Tamaulipas [id=323] -> Ciudad Río Bravo, Tamaulipas [id=133] -> Reynosa, Tamaulipas [id=31] -> Camargo, Tamaulipas [id=851] -> China, Nuevo León [id=941] -> Cadereyta Jiménez, Nuevo León [id=168] -> Jardines de la Silla (Jardines), Nuevo León [id=200] -> Monterrey, Nuevo León [id=10]
+Depth (hops): 27
+Cost (km): 1041.87
+Expanded: 428
+Heuristic: haversine al destino × alpha; alpha=0.998517792300
