@@ -1,0 +1,9 @@
+Downloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolov8n.pt to 'yolov8n.pt': 100% ━━━━━━━━━━━━ 6.2MB 85.3MB/s 0.1s
+Ultralytics 8.4.150 🚀 Python-3.13.15 torch-2.11.0+cu128 CUDA:0 (Tesla T4, 14913MiB)
+YOLOv8n summary (fused): 72 layers, 3,151,904 parameters, 0 gradients, 8.7 GFLOPs
+
+Downloading https://ultralytics.com/images/zidane.jpg to 'zidane.jpg': 100% ━━━━━━━━━━━━ 49.2KB 5.6MB/s 0.0s
+image 1/1 /content/zidane.jpg: 384x640 2 persons, 1 tie, 6.4ms
+Speed: 155.1ms preprocess, 6.4ms inference, 38.8ms postprocess per image at shape (1, 3, 384, 640)
+Results saved to /content/runs/detect/predict
+💡 Learn more at https://docs.ultralytics.com/modes/predict

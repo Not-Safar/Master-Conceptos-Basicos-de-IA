@@ -1,0 +1,196 @@
+{
+  "01_zidane_cli": {
+    "fuente": "https://ultralytics.com/images/zidane.jpg",
+    "pesos": "yolov8n.pt preentrenado",
+    "carpeta_resultados": "/content/runs/detect/predict",
+    "imagen": "01_zidane_cli.jpg",
+    "resumen_cli": [
+      "image 1/1 /content/zidane.jpg: 384x640 2 persons, 1 tie, 6.4ms"
+    ]
+  },
+  "02_bus_python": {
+    "fuente": "https://ultralytics.com/images/bus.jpg",
+    "pesos": "YOLOv8n después del entrenamiento de 3 épocas",
+    "checkpoint": "/content/runs/detect/train/weights/best.pt",
+    "carpeta_resultados": "/content/runs/detect/predict-2",
+    "imagen": "02_bus_python.jpg",
+    "numero_cajas": 6,
+    "clases": {
+      "bus": 1,
+      "person": 4,
+      "stop sign": 1
+    },
+    "cajas": [
+      {
+        "clase_id": 5,
+        "clase": "bus",
+        "confianza": 0.8949313163757324,
+        "xyxy": [
+          23.572574615478516,
+          229.9486541748047,
+          807.6795043945312,
+          753.8507690429688
+        ]
+      },
+      {
+        "clase_id": 0,
+        "clase": "person",
+        "confianza": 0.8482217788696289,
+        "xyxy": [
+          46.975975036621094,
+          398.2914123535156,
+          245.43873596191406,
+          904.2861938476562
+        ]
+      },
+      {
+        "clase_id": 0,
+        "clase": "person",
+        "confianza": 0.8165485262870789,
+        "xyxy": [
+          668.0773315429688,
+          375.6209716796875,
+          809.97265625,
+          875.3269653320312
+        ]
+      },
+      {
+        "clase_id": 0,
+        "clase": "person",
+        "confianza": 0.7680543065071106,
+        "xyxy": [
+          218.5331573486328,
+          406.0870666503906,
+          346.84844970703125,
+          859.7332153320312
+        ]
+      },
+      {
+        "clase_id": 11,
+        "clase": "stop sign",
+        "confianza": 0.4143083989620209,
+        "xyxy": [
+          0.0,
+          254.94314575195312,
+          32.86035919189453,
+          324.34466552734375
+        ]
+      },
+      {
+        "clase_id": 0,
+        "clase": "person",
+        "confianza": 0.2674866318702698,
+        "xyxy": [
+          0.0,
+          544.66845703125,
+          76.08856964111328,
+          865.3778076171875
+        ]
+      }
+    ]
+  },
+  "entrenamiento": {
+    "modelo_inicial": "yolov8n.pt",
+    "dataset": "coco128.yaml",
+    "epocas_completadas": 3,
+    "carpeta_resultados": "/content/runs/detect/train",
+    "checkpoint_best": "/content/runs/detect/train/weights/best.pt"
+  },
+  "foto_propia": {
+    "nombre_subido": "feature-highlight-2 (1).png",
+    "archivo_usado": "/content/mi_foto.png",
+    "sha256": "a5e00c4ab3ca61715c7b29dc192c220b7720aa594a46523550618b8daf8797e8",
+    "formato": "PNG",
+    "copia_evidencia": "foto_propia_original.png"
+  },
+  "03_foto_propia_cli": {
+    "fuente": "/content/mi_foto.png",
+    "pesos": "yolov8n.pt preentrenado",
+    "carpeta_resultados": "/content/runs/detect/predict-3",
+    "imagen": "03_foto_propia_cli.jpg",
+    "resumen_cli": [
+      "image 1/1 /content/mi_foto.png: 512x640 4 persons, 1 remote, 2 cell phones, 6.9ms"
+    ]
+  },
+  "04_foto_propia_python": {
+    "fuente": "/content/mi_foto.png",
+    "pesos": "YOLOv8n después del entrenamiento de 3 épocas",
+    "checkpoint": "/content/runs/detect/train/weights/best.pt",
+    "carpeta_resultados": "/content/runs/detect/predict-2",
+    "imagen": "04_foto_propia_python.jpg",
+    "numero_cajas": 6,
+    "clases": {
+      "remote": 2,
+      "cell phone": 2,
+      "person": 2
+    },
+    "cajas": [
+      {
+        "clase_id": 65,
+        "clase": "remote",
+        "confianza": 0.7989968657493591,
+        "xyxy": [
+          154.97381591796875,
+          93.16940307617188,
+          200.18272399902344,
+          118.7222900390625
+        ]
+      },
+      {
+        "clase_id": 67,
+        "clase": "cell phone",
+        "confianza": 0.6433049440383911,
+        "xyxy": [
+          193.5771026611328,
+          126.07029724121094,
+          271.35089111328125,
+          172.39247131347656
+        ]
+      },
+      {
+        "clase_id": 67,
+        "clase": "cell phone",
+        "confianza": 0.5954576134681702,
+        "xyxy": [
+          154.25961303710938,
+          93.63504028320312,
+          198.51841735839844,
+          117.87384033203125
+        ]
+      },
+      {
+        "clase_id": 65,
+        "clase": "remote",
+        "confianza": 0.49800941348075867,
+        "xyxy": [
+          192.39938354492188,
+          126.31229400634766,
+          271.12274169921875,
+          170.34217834472656
+        ]
+      },
+      {
+        "clase_id": 0,
+        "clase": "person",
+        "confianza": 0.4114609360694885,
+        "xyxy": [
+          0.7756626009941101,
+          2.075580358505249,
+          215.493408203125,
+          204.97146606445312
+        ]
+      },
+      {
+        "clase_id": 0,
+        "clase": "person",
+        "confianza": 0.3221549689769745,
+        "xyxy": [
+          0.05729103088378906,
+          15.054924011230469,
+          250.38900756835938,
+          292.79052734375
+        ]
+      }
+    ]
+  }
+}

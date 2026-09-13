@@ -1,0 +1,8 @@
+{
+  "fecha_utc": "2026-09-13T02:03:22.957017+00:00",
+  "python": "3.13.15",
+  "ultralytics": "8.4.150",
+  "pytorch": "2.11.0+cu128",
+  "gpu": "Tesla T4",
+  "colab_detectado": true
+}
