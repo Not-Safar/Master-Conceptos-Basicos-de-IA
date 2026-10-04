@@ -1,5 +1,6 @@
 # Aula RAG
 
+Sistema de consulta documental | Reporte del proyecto final | 4 de octubre de 2026
 
 **Propósito y documentos.** Aula RAG permite consultar documentos sobre fundamentos de inteligencia artificial, aprendizaje automático, embeddings y sistemas RAG. Su objetivo es ofrecer respuestas que puedan comprobarse al leer las fuentes. La colección de ejemplo reúne cinco documentos Markdown originales, compartidos bajo licencia CC0, con 3,926 palabras. Después de procesarlos, se obtuvieron 18 fragmentos de texto, llamados chunks, que forman el índice de búsqueda.
 
