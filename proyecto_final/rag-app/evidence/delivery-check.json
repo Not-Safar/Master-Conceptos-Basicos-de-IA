@@ -56,5 +56,12 @@
     "Additional negative case: 429, then 200",
     "OpenAPI evidence: 429, then 200"
   ],
-  "passed": true
+  "passed": true,
+  "report_revision": {
+    "date": "2026-10-04",
+    "body_alignment": "justified",
+    "pages": 1,
+    "visual_review_passed": true,
+    "description": "Redaccion clara y formal; contenido requerido conservado"
+  }
 }
