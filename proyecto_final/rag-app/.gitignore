@@ -1,0 +1,11 @@
+.env
+.venv/
+chroma/
+.uv-cache/
+__pycache__/
+.pytest_cache/
+*.pyc
+evidence/*.json
+logs/
+tmp/
+dist/
