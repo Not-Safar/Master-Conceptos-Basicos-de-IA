@@ -2,6 +2,7 @@
 from pathlib import Path
 from xml.sax.saxutils import escape
 from reportlab.lib import colors
+from reportlab.lib.enums import TA_JUSTIFY, TA_LEFT
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
@@ -12,17 +13,24 @@ OUTPUT = ROOT / "output" / "pdf" / "reporte-aula-rag.pdf"
 
 def main():
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    style = ParagraphStyle("Body", fontName="Helvetica", fontSize=10.2, leading=14.2,
-                           textColor=colors.HexColor("#243449"), spaceAfter=9)
+    style = ParagraphStyle("Body", fontName="Helvetica", fontSize=10.5, leading=14.8,
+                           textColor=colors.HexColor("#243449"), spaceAfter=10,
+                           alignment=TA_JUSTIFY)
     heading = ParagraphStyle("Heading", parent=style, fontName="Helvetica-Bold", fontSize=10.8,
-                             leading=15, textColor=colors.HexColor("#087F8C"), spaceAfter=4)
+                             leading=15, textColor=colors.HexColor("#087F8C"), spaceAfter=4,
+                             alignment=TA_LEFT, keepWithNext=True)
     title = ParagraphStyle("Title", parent=style, fontName="Helvetica-Bold", fontSize=25,
-                           leading=30, textColor=colors.HexColor("#12243B"), spaceAfter=5)
-    subtitle = ParagraphStyle("Subtitle", parent=style, fontSize=10, textColor=colors.HexColor("#64748B"))
-    story = [Paragraph("Aula RAG", title),
-             Paragraph("Proyecto final | Informe de diseño y verificación | 2 de octubre de 2026", subtitle),
+                           leading=30, textColor=colors.HexColor("#12243B"), spaceAfter=5,
+                           alignment=TA_LEFT)
+    subtitle = ParagraphStyle("Subtitle", parent=style, fontSize=10, alignment=TA_LEFT,
+                              textColor=colors.HexColor("#64748B"))
+    blocks = (ROOT / "REPORT.md").read_text(encoding="utf-8-sig").strip().split("\n\n")
+    report_title = blocks[0].lstrip("# ").strip()
+    report_subtitle = blocks[1].strip()
+    story = [Paragraph(escape(report_title), title),
+             Paragraph(escape(report_subtitle), subtitle),
              Spacer(1, 5 * mm)]
-    for block in (ROOT / "REPORT.md").read_text(encoding="utf-8-sig").split("\n\n"):
+    for block in blocks[2:]:
         if block.startswith("#") or not block.strip():
             continue
         text = block.replace("\n", " ").strip()
