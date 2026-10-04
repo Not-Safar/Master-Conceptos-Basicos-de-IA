@@ -1,0 +1,60 @@
+{
+  "checked_at": "2026-10-02T19:17:32.272050-06:00",
+  "health": {
+    "status": "ok",
+    "chroma_accessible": true,
+    "google_api_key_configured": true,
+    "total_chunks": 18,
+    "documents": [
+      {
+        "source": "data/01_fundamentos_ia.md",
+        "chunks": 4
+      },
+      {
+        "source": "data/02_aprendizaje_y_evaluacion.md",
+        "chunks": 3
+      },
+      {
+        "source": "data/03_texto_embeddings_y_busqueda.md",
+        "chunks": 4
+      },
+      {
+        "source": "data/04_arquitectura_rag.md",
+        "chunks": 3
+      },
+      {
+        "source": "data/05_abstencion_y_validacion.md",
+        "chunks": 4
+      }
+    ],
+    "embedding_model": "gemini-embedding-001",
+    "embedding_dimensions": 768,
+    "generation_model": "gemini-3.8-flash",
+    "min_score": 0.35,
+    "error": null
+  },
+  "streamlit_http_status": 200,
+  "openapi_http_status": 200,
+  "corpus_documents": 5,
+  "corpus_words": 3926,
+  "chunks": 18,
+  "real_evaluation_passed": 5,
+  "real_evaluation_total": 5,
+  "positive_answers": 3,
+  "abstentions": 2,
+  "citation_texts_verified_against_delivered_corpus": 20,
+  "semantic_support_review": "VALIDATION.md",
+  "local_tests_passed": 68,
+  "report_pdf_pages": 1,
+  "captures": [
+    "corpus-streamlit-answer.jpg",
+    "corpus-api-answer.jpg",
+    "corpus-streamlit-abstention.jpg"
+  ],
+  "provider_incidents": [
+    "Initial evaluator run: 502",
+    "Additional negative case: 429, then 200",
+    "OpenAPI evidence: 429, then 200"
+  ],
+  "passed": true
+}

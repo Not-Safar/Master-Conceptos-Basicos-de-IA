@@ -1,0 +1,36 @@
+{
+  "captured_at": "2026-10-02T01:35:52.647325+00:00",
+  "health": {
+    "status": "ok",
+    "chroma_accessible": true,
+    "google_api_key_configured": true,
+    "total_chunks": 18,
+    "documents": [
+      {
+        "source": "data/01_fundamentos_ia.md",
+        "chunks": 4
+      },
+      {
+        "source": "data/02_aprendizaje_y_evaluacion.md",
+        "chunks": 3
+      },
+      {
+        "source": "data/03_texto_embeddings_y_busqueda.md",
+        "chunks": 4
+      },
+      {
+        "source": "data/04_arquitectura_rag.md",
+        "chunks": 3
+      },
+      {
+        "source": "data/05_abstencion_y_validacion.md",
+        "chunks": 4
+      }
+    ],
+    "embedding_model": "gemini-embedding-001",
+    "embedding_dimensions": 768,
+    "generation_model": "gemini-3.8-flash",
+    "min_score": 0.35,
+    "error": null
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "before": {
+    "captured_at": "2026-10-02T01:35:52.647325+00:00",
+    "health": {
+      "status": "ok",
+      "chroma_accessible": true,
+      "google_api_key_configured": true,
+      "total_chunks": 18,
+      "documents": [
+        {
+          "source": "data/01_fundamentos_ia.md",
+          "chunks": 4
+        },
+        {
+          "source": "data/02_aprendizaje_y_evaluacion.md",
+          "chunks": 3
+        },
+        {
+          "source": "data/03_texto_embeddings_y_busqueda.md",
+          "chunks": 4
+        },
+        {
+          "source": "data/04_arquitectura_rag.md",
+          "chunks": 3
+        },
+        {
+          "source": "data/05_abstencion_y_validacion.md",
+          "chunks": 4
+        }
+      ],
+      "embedding_model": "gemini-embedding-001",
+      "embedding_dimensions": 768,
+      "generation_model": "gemini-3.8-flash",
+      "min_score": 0.35,
+      "error": null
+    }
+  },
+  "after": {
+    "captured_at": "2026-10-02T01:38:01.260082+00:00",
+    "health": {
+      "status": "ok",
+      "chroma_accessible": true,
+      "google_api_key_configured": true,
+      "total_chunks": 18,
+      "documents": [
+        {
+          "source": "data/01_fundamentos_ia.md",
+          "chunks": 4
+        },
+        {
+          "source": "data/02_aprendizaje_y_evaluacion.md",
+          "chunks": 3
+        },
+        {
+          "source": "data/03_texto_embeddings_y_busqueda.md",
+          "chunks": 4
+        },
+        {
+          "source": "data/04_arquitectura_rag.md",
+          "chunks": 3
+        },
+        {
+          "source": "data/05_abstencion_y_validacion.md",
+          "chunks": 4
+        }
+      ],
+      "embedding_model": "gemini-embedding-001",
+      "embedding_dimensions": 768,
+      "generation_model": "gemini-3.8-flash",
+      "min_score": 0.35,
+      "error": null
+    }
+  },
+  "process": {
+    "api_pid_before": 12920,
+    "api_restarted": true,
+    "ui_unchanged": true,
+    "ui_pid_before": 24420,
+    "ui_pid_after": 24420,
+    "api_pid_after": 5564
+  },
+  "same_documents": true,
+  "same_total_chunks": true,
+  "chroma_accessible_after": true,
+  "query_after_restart": {
+    "question": "¿Por qué se utiliza solapamiento al dividir los documentos?",
+    "http_status": 200,
+    "seconds": 7.07,
+    "passed": true,
+    "response": {
+      "answer": "El solapamiento se utiliza porque repite las últimas palabras de una ventana al inicio de la siguiente, lo que reduce la posibilidad de que una explicación situada en un límite quede fragmentada y sin contexto en ninguna ventana [1].",
+      "citations": [
+        {
+          "index": 1,
+          "id": "6bebd8d1329527c7337ff7dccd33756da2aeef3ae035559b9c12a12b3dce6aef",
+          "source": "data/03_texto_embeddings_y_busqueda.md",
+          "text": "existe evidencia suficiente. ## Partición en fragmentos Dividir documentos en chunks permite recuperar partes específicas en lugar de enviar un archivo completo al modelo. Fragmentos demasiado pequeños pueden perder contexto: una definición puede separarse de su ejemplo o de una condición importante. Fragmentos demasiado grandes pueden incluir temas ajenos y gastar espacio de contexto. Elegir un tamaño implica equilibrar localización, coherencia y costo. Este proyecto usa ventanas de 300 palabras con 60 palabras de solapamiento como punto inicial para apuntes educativos. El solapamiento repite las últimas palabras de una ventana al inicio de la siguiente. Reduce la posibilidad de que una explicación situada en un límite quede fragmentada sin contexto en ninguna ventana. No elimina todos los problemas de partición. También aumenta el número de vectores y puede producir resultados redundantes. En esta implementación se preserva la página del PDF y el índice del chunk; las ventanas no cruzan páginas. Para tablas o textos estructurados podría convenir una estrategia que respete secciones. ## Recuperación top-k Una búsqueda top-k devuelve los k fragmentos más cercanos al vector de la pregunta. Recuperar más fragmentos aumenta la posibilidad de incluir evidencia útil, pero también puede introducir ruido y elevar el costo de generación. Un valor inicial de cuatro resulta manejable para una biblioteca pequeña, y la interfaz permite ajustarlo. Un filtro por archivo restringe la consulta cuando la persona desea trabajar con una fuente específica. El filtro debe aplicarse en el índice y no después de generar la respuesta. La inspección de resultados permite separar dos problemas. Si el fragmento necesario no aparece, la recuperación necesita mejoras de extracción, partición, consulta o selección. Si aparece y el modelo responde mal, el problema está en el uso de evidencia o en la generación. Conservar texto, archivo, página y score en la respuesta de la",
+          "score": 0.688411,
+          "page": 1,
+          "chunk_index": 2,
+          "kind": "chunk"
+        },
+        {
+          "index": 2,
+          "id": "12eac268bdf75d600c596474c4065e7e0418cfcf6757e394cf9d594e408edc1a",
+          "source": "data/04_arquitectura_rag.md",
+          "text": "# Arquitectura de un sistema RAG ## Recuperar antes de generar La generación aumentada por recuperación, llamada RAG, combina una búsqueda sobre fuentes disponibles con la producción de una respuesta. El orden importa: primero se obtienen fragmentos relacionados con la pregunta y después el modelo recibe esa evidencia. Enviar únicamente la pregunta a un modelo de lenguaje no constituye este flujo documental. La respuesta debe depender de lo recuperado y permitir que una persona localice las fuentes. Un sistema RAG puede reconocer que su biblioteca no contiene información suficiente para responder. La indexación y la consulta son procesos distintos. Durante la indexación se extrae texto, se divide en fragmentos, se calculan embeddings de documentos y se almacenan vectores con metadatos. Durante una consulta se calcula el embedding de la pregunta, se buscan vecinos y se selecciona evidencia. Finalmente se genera la respuesta con referencias numeradas. La indexación suele repetirse cuando cambia el corpus; calcular el vector de la pregunta ocurre en cada consulta. ## Responsabilidad de Streamlit Streamlit presenta la interfaz. Permite subir archivos, solicitar su indexación, escribir una pregunta y revisar respuestas y fuentes. También muestra estados vacíos y errores útiles: API sin conexión, falta de credenciales o biblioteca todavía vacía. Su responsabilidad es enviar peticiones HTTP y presentar resultados. En esta arquitectura no calcula embeddings, no llama directamente a Google AI y no abre la base ChromaDB. Esta separación permite que las reglas del sistema estén concentradas en un servicio. El historial de preguntas en la sesión facilita revisar interacciones previas. Tener un historial visual no implica que cada pregunta use las anteriores como contexto. En este proyecto cada consulta es independiente, y el historial vive solo en la sesión de Streamlit. Una aplicación conversacional con referencias como “ese documento” necesitaría resolver explícitamente esos antecedentes antes de recuperar",
+          "score": 0.623818,
+          "page": 1,
+          "chunk_index": 0,
+          "kind": "chunk"
+        },
+        {
+          "index": 3,
+          "id": "b405e2411d2b6b96bb806eb322542234e2c0f17bb7787ffde8b2f5863e7704c8",
+          "source": "data/03_texto_embeddings_y_busqueda.md",
+          "text": "no después de generar la respuesta. La inspección de resultados permite separar dos problemas. Si el fragmento necesario no aparece, la recuperación necesita mejoras de extracción, partición, consulta o selección. Si aparece y el modelo responde mal, el problema está en el uso de evidencia o en la generación. Conservar texto, archivo, página y score en la respuesta de la API ayuda a diagnosticar esas diferencias sin depender únicamente de la impresión que produce el texto final.",
+          "score": 0.613608,
+          "page": 1,
+          "chunk_index": 3,
+          "kind": "chunk"
+        },
+        {
+          "index": 4,
+          "id": "bd841f08b896032b7b867cd5761ee96c4e72d854e64dd0bdaea2387e5c5cc02d",
+          "source": "data/03_texto_embeddings_y_busqueda.md",
+          "text": "# Texto, embeddings y búsqueda semántica ## Del archivo al texto Un sistema documental necesita extraer texto antes de generar vectores. Los archivos TXT y Markdown guardados en UTF-8 permiten una lectura directa. Un PDF puede contener texto seleccionable, imágenes de páginas o una combinación de ambos. Si sus páginas son solo imágenes, un extractor de texto puede devolver cadenas vacías. En ese caso se requiere reconocimiento óptico de caracteres, conocido como OCR, y una revisión de su calidad. Contar un PDF vacío como documento indexado produciría una falsa impresión de cobertura. La extracción puede alterar el orden de lectura en columnas, perder tablas o unir encabezados con párrafos. Conviene inspeccionar algunos fragmentos y conservar el número de página para localizar el original. En documentos con cifras, una pérdida de formato puede cambiar la interpretación. Una tabla transformada en palabras sucesivas puede ocultar qué valor corresponde a qué encabezado. La recuperación semántica no corrige esos errores de entrada; solo busca relaciones entre las representaciones que recibió. ## Qué representa un embedding Un embedding es una representación numérica de un elemento, como una palabra, una oración o un fragmento. Los modelos de embeddings convierten texto en vectores que permiten comparar relaciones de significado aproximadas. Dos expresiones con vocabulario diferente pueden quedar cercanas si se refieren al mismo tema. Esta cercanía resulta útil para encontrar un párrafo relevante cuando la pregunta no repite exactamente sus palabras. No debe interpretarse como una prueba de equivalencia lógica o de exactitud factual. El espacio vectorial depende del modelo que produce las representaciones. Vectores de modelos diferentes no deben mezclarse en la misma búsqueda aunque tengan igual número de dimensiones. Las coordenadas pueden representar relaciones incompatibles. Si se cambia el modelo o una configuración que altera el espacio, se deben recalcular los vectores de todos los",
+          "score": 0.600165,
+          "page": 1,
+          "chunk_index": 0,
+          "kind": "chunk"
+        }
+      ],
+      "abstained": false,
+      "reason": null,
+      "resolved_question": null
+    }
+  },
+  "passed": true
+}
